@@ -1,4 +1,4 @@
-const URL = "https://biblioteca-api.onrender.com/libros";
+const URL = "https://biblioteca-react-api.onrender.com/libros";
 
 export const obtenerLibros = async () => {
   const res = await fetch(URL);
