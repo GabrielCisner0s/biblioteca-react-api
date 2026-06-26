@@ -43,7 +43,10 @@ function App() {
     });
   };
 
+  const textoValido = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü0-9\s.,-]+$/;
+  
   const validar = () => {
+
     if (
       !formulario.id ||
       !formulario.titulo ||
@@ -56,6 +59,16 @@ function App() {
 
     if (parseInt(formulario.anio) < 1900) {
       setMensaje("El año debe ser mayor o igual a 1900");
+      return false;
+    }
+
+    if (!textoValido.test(formulario.titulo)) {
+      setMensaje("El título contiene caracteres no permitidos.");
+      return false;
+    }
+
+    if (!textoValido.test(formulario.autor)) {
+      setMensaje("El autor contiene caracteres no permitidos.");
       return false;
     }
 
